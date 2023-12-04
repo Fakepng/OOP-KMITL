@@ -38,8 +38,33 @@ public :
         playing_sec = 0;
     }
 
+    void select_time(int _time) {
+        if(_time < 0) {
+            playing_sec = 0;
+            return;
+        };
+        if(_time > length_per_episode) {
+            playing_sec = 0;
+            return;
+        };
+
+        playing_sec = _time;
+    }
+
     anime(){
         cout << "this is default constructor" << endl;
+
+        playing_episode = 1;
+        playing_sec = 0;
+    }
+
+    anime(string _name, string _author, int _length) {
+      cout << "this is constructor for " << _name << endl;
+
+        full_name = _name;
+        author = _author;
+        total_episode = 12;
+        length_per_episode = _length;
 
         playing_episode = 1;
         playing_sec = 0;
@@ -59,6 +84,7 @@ public :
 
     ~anime(){
         cout << full_name << " has destroyed" << endl;
+        cout << playing_episode << " episode has played" << endl;
     }
 
 };
