@@ -38,10 +38,14 @@ public :
     }
 
     media(string _name,string _author,int _length){ // 3 parameter constructor
+        media(_name,_author,_length,0);
+    }
+
+    media(string _name,string _author,int _length, int _playing_sec){ // 4 parameter constructor
         name = _name;
         author = _author;
         length = _length;
-        playing_sec = 0;
+        playing_sec = _playing_sec;
     }
 
 };
@@ -78,8 +82,16 @@ public :
     }
 
     movie(string _name,string _author,int _length, string _director, string _actor) : media(_name,_author,_length){ // 5 parameter constructor
+        movie(_name,_author,_length,0,_director,_actor);
+    }
+
+    movie(string _name,string _author,int _length, int _playing_sec,string _director, string _actor) : media(_name,_author,_length,_playing_sec){
         director = _director;
         main_actor = _actor;
+    }
+
+    void print_movie(){
+        cout << "now we playing " << name << " directed by " << director << " at " <<  get_playing_sec() << " sec" << endl;
     }
 };
 
@@ -94,8 +106,30 @@ public :
     }
 
     episode(string _name,string _author,int _length, int ep_num, string ep_name) : media(_name,_author,_length){ // 5 parameter constructor
+        episode(_name,_author,_length,0,ep_num,ep_name);
+    }
+
+    episode(string _name,string _author,int _length, int _playing_sec, int ep_num, string ep_name) : media(_name,_author,_length,_playing_sec){
         episode_number = ep_num;
         episode_name = ep_name;
+    }
+    
+    void print_episode(){
+        cout << "now we playing " << name << " that be ep." << episode_number << " at " <<  get_playing_sec() << " sec" << endl;
+    }
+};
+
+class podcast : public media{
+private :
+    string station;
+
+public :
+    podcast(string _name, string _author, int _length, string _station) : media(_name, _author, _length){
+        station = _station;
+    }
+
+    void print_podcast() {
+        cout << "now we playing " << name << " from " << station << " station at " << get_playing_sec() << " sec" << endl;
     }
 };
 
@@ -129,14 +163,12 @@ int main(){
     m2.print_movie();
 
     //2
-    /*
     cout << "2" << endl;
     episode e2("Start-Up (2020) : ep 16 Scale up","Studio Dragon",4800,321,16,"Scale up");
     e2.play(10);
     e2.print_episode();
     e2.reset();
     e2.print_episode();
-    /*
     
     /* expected
     Playing PYMK EP21 Davinci The Renaissance genius at[0] : [3232 sec] remaining
