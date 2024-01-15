@@ -8,20 +8,41 @@ public :
 
     virtual T add(T x,T y)  = 0;
 
-    T add(T x,T y){
-        ....
-    }
-
     virtual T subtract(T x,T y)  = 0;
-    virtual T multiply(T x,T y)  = 0;
 
+    virtual T multiply(T x,T y)  = 0;
 
     virtual T sum(T x1,T x2=0,T x3=0,T x4=0,T x5=0,T x6=0,T x7=0,T x8=0,T x9=0,T x10=0) = 0;
 
 };
 
 template <typename T> class universal_calculator : public prototype_calculator<T>{
-    // TODO
+public :
+    static int operate_count;
+
+    static int get_operator_count(){
+        return operate_count;
+    }
+
+    T add(T x,T y){
+        operate_count++;
+        return x + y;
+    }
+
+    T subtract(T x,T y){
+        operate_count++;
+        return x - y;
+    }
+
+    T multiply(T x,T y){
+        operate_count++;
+        return x * y;
+    }
+
+    T sum(T x1,T x2=0,T x3=0,T x4=0,T x5=0,T x6=0,T x7=0,T x8=0,T x9=0,T x10=0){
+        operate_count++;
+        return x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8 + x9 + x10;
+    }
 };
 
 
@@ -57,15 +78,6 @@ int main(){
     cout << "operated char: " << universal_calculator<char>::get_operator_count() << "times" << endl;
 
     /*
-    add : substract : multiply
-    15 : -3 : 54
-    16.5 : -3.3 : 65.34
-    16.5 : -2.7 : 66.24
-    B : w : F
-    operated : 3times
-    sum
-    55,45,36,28,21,15,10,<,B,F
-    PS C:\Users\User>  & 'c:\Users\User\.vscode\extensions\ms-vscode.cpptools-1.13.9-win32-x64\debugAdapters\bin\WindowsDebugLauncher.exe' '--stdin=Microsoft-MIEngine-In-rwp4kraw.gxy' '--stdout=Microsoft-MIEngine-Out-cv0sup2d.ejs' '--stderr=Microsoft-MIEngine-Error-0ghyjtyx.0o5' '--pid=Microsoft-MIEngine-Pid-4vgejyro.1fy' '--dbgExe=C:\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin\gdb.exe' '--interpreter=mi' 
     operated : 0times
     add : substract : multiply
     15 : -3 : 54
