@@ -71,6 +71,80 @@ public :
     }
 };
 
+class labtop{
+public :
+    string name;
+    processor cpu;
+    float ram_capacity;
+    input_device input;
+    string os;
+    computing_device computing_device;
+
+    labtop(){
+
+    }
+
+    // labtop alienware_area51("Dell Alienware Area 51",i7,64,nb_keyboard,"windows");
+    // labtop Hp_Envy("HP Envy 16-h0043TX",i5,16,nb_keyboard,"windows");
+    // labtop Asus_vivobook("ASUS Vivobook 15 D1502IA",ryzen5,8,nb_keyboard,"Ubuntu");
+    labtop(string _name, processor _processor, float _ram_capacity, input_device _input, string _os){
+        name = _name;
+        cpu = _processor;
+        ram_capacity = _ram_capacity;
+        input = _input;
+        os = _os;
+        computing_device.cpu = cpu;
+        computing_device.ram_capacity = ram_capacity;
+    }
+
+    void print(){
+        // Dell Alienware Area 51 has [250.88] power with [labtop keyboard] input
+        // HP Envy 16-h0043TX has [115.2] power with [labtop keyboard] input
+        // ASUS Vivobook 15 D1502IA has [38.4] power with [labtop keyboard] input
+        cout << name << " has [" << computing_device.processing_power() << "] power with [" << input.name << "] input" << endl;
+    }
+};
+
+class smartphone{
+public :
+    string name;
+    processor cpu;
+    float ram_capacity;
+    input_device input;
+    string network;
+    string os;
+    computing_device computing_device;
+
+    smartphone(){
+
+    }
+
+    // smartphone iphone4("iPhone 4", apple_a4, 0.512, cap_touch,"3G");
+    // smartphone iphone12("iPhone 12", apple_a16, 4, cap_touch,"5G");
+    smartphone(string _name, processor _processor, float _ram_capacity, input_device _input, string _network){
+        name = _name;
+        cpu = _processor;
+        ram_capacity = _ram_capacity;
+        input = _input;
+        network = _network;
+        computing_device.cpu = cpu;
+        computing_device.ram_capacity = ram_capacity;
+
+        if(cpu.brand == "Apple "){
+            os = "IOS";
+        }
+        else{
+            os = "Android";
+        }
+    }
+
+    void print(){
+        // iPhone 4 using [IOS] with [3G] network and running at [0.04096] power
+        // iPhone 12 using [IOS] with [5G] network and running at [5.496] power
+        cout << name << " using [" << os << "] with [" << network << "] network and running at [" << computing_device.processing_power() << "] power" << endl;
+    }
+};
+
 int main(){
     processor i3("i3-13100","intel",4.5,8);
     processor i5("i5-12500H","intel",4.5,16);
@@ -103,19 +177,17 @@ int main(){
     Asus_vivobook.print();
 
     //1
-    /*
     smartphone iphone4("iPhone 4", apple_a4, 0.512, cap_touch,"3G");
     smartphone iphone12("iPhone 12", apple_a16, 4, cap_touch,"5G");
     iphone4.print();
     iphone12.print();
-    */
 
     //2
     smartphone Samsung_Galaxy_S22("Samsung Galaxy S22", SM8450, 8, cap_touch,"5G");
     smartphone Samsung_Galaxy_Z_flip("Samsung Galaxy Z flip", SM8150, 8, cap_touch,"4G");
     Samsung_Galaxy_S22.print();
     Samsung_Galaxy_Z_flip.print();
-   
+
     /*
     Dell Alienware Area 51 has [250.88] power with [labtop keyboard] input
     HP Envy 16-h0043TX has [115.2] power with [labtop keyboard] input
@@ -123,8 +195,8 @@ int main(){
 
     iPhone 4 using [IOS] with [3G] network and running at [0.04096] power
     iPhone 12 using [IOS] with [5G] network and running at [5.496] power
-    
-    Samsung Galaxy S22 using [Android] with [5G] network and running at [12] power        
+
+    Samsung Galaxy S22 using [Android] with [5G] network and running at [12] power
     Samsung Galaxy Z flip using [Android] with [4G] network and running at [13.8384] power
     */
 
