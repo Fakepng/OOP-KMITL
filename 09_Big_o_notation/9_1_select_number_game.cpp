@@ -2,11 +2,13 @@
 using namespace std;
 
 int brute_fource_select(int num[],int n){
+    int iteration = 0;
     int max = (((num[0] * num[1]) + num[2]) - num[3]);
     for(int i=0;i<n;i++){
         for(int j=0;j<n;j++){
             for(int k=0;k<n;k++){
                 for(int l=0;l<n;l++){
+                    iteration++;
                     if(i!=j && i!=k && i!= l && j!=k && j!=l && k!= l){
                         //cout << num[j] << " " << num[k] << " " << num[l] << " " << num[i] << endl;
                         int result = (((num[i] * num[j]) + num[k]) - num[l]);
@@ -18,6 +20,8 @@ int brute_fource_select(int num[],int n){
             }
         }
     }
+
+    cout << "brute_fource_select iteration: " << iteration << endl;
     return max;
 }
 
@@ -32,7 +36,7 @@ int fix_minmum_select(int num[],int n){
                         max = result;
                     }
                 }
-            }          
+            }
         }
     }
     return max;
@@ -56,8 +60,8 @@ int main(){
     int number1[7] = {12,11,10,4,2,1,0} , n1 = 7;
     int number2[5] = {9,8,7,6} , n2 = 4;
 
-    //cout << brute_fource_select(number1,n1) << endl;
-    //cout << brute_fource_select(number2,n2) << endl;
+    cout << brute_fource_select(number1,n1) << endl;
+    cout << brute_fource_select(number2,n2) << endl;
 
     //cout << fix_minmum_select(number1,n1) << endl;
     //cout << fix_minmum_select(number2,n2) << endl;
@@ -76,9 +80,9 @@ int main(){
         number3[300 - i] = i * 10;
     }
 
-    cout << greedy_select(number3,n3) << endl;
-    cout << fix_minmum_select(number3,n3) << endl;
-    cout << brute_fource_select(number3,n3) << endl;
+    // cout << greedy_select(number3,n3) << endl;
+    // cout << fix_minmum_select(number3,n3) << endl;
+    // cout << brute_fource_select(number3,n3) << endl;
 
     return 0;
 }

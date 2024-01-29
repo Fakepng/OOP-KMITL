@@ -3,10 +3,14 @@ using namespace std;
 
 int main(){
 
-    int number1[16] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
-    //int number1[9] = {8,17,16,5,9,7,1,3,2};
-    int number2[16] = {20,21,23,24,25,26,27,28,29};
-    int number3[16] = {20,21,23,24,25,26,27,28,29};
+    // int number2[9] = {8,17,16,5,9,7,1,3,2};
+    // int number2[8] = {1,2,3,4,5,6,7,8};
+    // int number2[4] = {1,2,3,4};
+    int number2[16] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16};
+    // int number2[16] = {16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1};
+    int number1[9] = {8,17,16,5,9,7,1,3,2};
+    // int number2[16] = {20,21,23,24,25,26,27,28,29};
+    int number3[16] = {16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1};
     int n = 16;
 
     int m1=0,m2=0,m3=0;
@@ -49,22 +53,21 @@ int main(){
         }
         if(swaped == false) break;
     }
-/*
-    for(int i=0;i<n;i++){
-        cout << number1[i] << " " ;
-    }
-    cout << " by " << m1 << endl;
-    */
+
+    // for(int i=0;i<n;i++){
+    //     cout << number1[i] << " " ;
+    // }
+    // cout << " by " << m1 << endl;
+
     for(int i=0;i<n;i++){
         cout << number2[i] << " " ;
     }
     cout << " by " << m2 << endl;
-    /*
-    for(int i=0;i<n;i++){
-        cout << number3[i] << " " ;
-    }
-    cout << " by " << m3 << endl;
-*/
+
+    // for(int i=0;i<n;i++){
+    //     cout << number3[i] << " " ;
+    // }
+    // cout << " by " << m3 << endl;
 
     return 0;
 }

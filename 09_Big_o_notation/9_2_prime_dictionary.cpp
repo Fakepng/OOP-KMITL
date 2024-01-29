@@ -30,10 +30,13 @@ int linear_search(int num[],int n,int target){ // return -1 if not found
 
 int b_search(int num[],int n,int target){
     int lo = 0, hi = n-1;
+    int iteration = 0;
 
     while(hi > lo){
+        iteration++;
         int mid = (lo + hi) / 2;
         if(target == num[mid]){
+            cout << "b_search iteration: " << iteration << endl;
             return mid;
         }
         else if(num[mid] > target){
@@ -44,18 +47,20 @@ int b_search(int num[],int n,int target){
         }
     }
     if(target == num[lo]){
+        cout << "b_search iteration: " << iteration << endl;
         return lo;
     }
 
+    cout << "b_search iteration: " << iteration << endl;
     return -1;
 }
 
 int main(){
-    
+
     //cout << is_prime(13) << "," << is_prime(14) << "," << is_prime(1299709) << endl;
     //cout << is_prime(179424673) << endl;
     //cout << is_prime(373587883) << endl;
-    cout << is_prime(776531401) << endl;
+    // cout << is_prime(776531401) << endl;
     //cout << is_prime(2038074743) << endl;
     //cout << is_prime(11111111111) << endl;
     //cout << is_prime(10000000000) << endl;
@@ -63,7 +68,7 @@ int main(){
     //cout << is_prime2(13) << "," << is_prime(14) << "," << is_prime(1299709) << endl;
     //cout << is_prime2(179424673) << endl;
     //cout << is_prime2(373587883) << endl;
-    cout << is_prime2(776531401) << endl;
+    // cout << is_prime2(776531401) << endl;
     //cout << is_prime2(2038074743) << endl;
     //cout << is_prime2(11111111111) << endl;
     //cout << is_prime2(10000000000) << endl;
@@ -77,7 +82,11 @@ int main(){
     cout << linear_search(number2,n2,12) << endl;
     cout << b_search(number2,n2,12) << endl;
     cout << linear_search(number3,n3,13) << endl;
-    cout << b_search(number3,n3,13) << endl;    
+    cout << b_search(number3,n3,13) << endl;
 */
+
+    int number[16] = {20,19,18,17,16,15,14,13,12,11,10,9,4,2,1,0}, n = 16;
+    cout << b_search(number,n,-20) << endl;
+
     return 0;
 }
