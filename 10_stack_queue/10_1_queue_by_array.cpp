@@ -17,7 +17,7 @@ public :
 
     void enqueue(int n){
         tail_idx++;
-        items[tail_idx] = n;     
+        items[tail_idx] = n;
     }
 
     int dequeue(){
@@ -27,7 +27,7 @@ public :
     }
 /*
     bool is_empty(){
-        if(tail_idx > head_idx) return true;  
+        if(tail_idx > head_idx) return true;
         return false;
     }
 */
@@ -36,10 +36,10 @@ public :
     }
 
 
-    bool is_full(){
-        if((tail_idx) >= capacity) return true;
-        return false;
-    }
+    // bool is_full(){
+    //     if((tail_idx) >= capacity) return true;
+    //     return false;
+    // }
 
     bool is_full(){
         return (tail_idx) >= capacity;
@@ -51,44 +51,43 @@ public :
 };
 
 int main(){
-    
-    Queue q(10);
-    q.enqueue(1); q.enqueue(10); q.enqueue(100);
-    cout << q.dequeue() << endl;
-    q.enqueue(2); q.enqueue(20); q.enqueue(200);
-    cout << q.dequeue() << endl;
-    cout << q.dequeue() << endl;
-    cout << q.dequeue() << endl;
-    cout << q.dequeue() << endl;
-    cout << q.dequeue() << endl;
-/*
-    Queue q2(12);
-    q.enqueue(2); 
-    q.enqueue(4); 
-    q.enqueue(6);
-    cout << q.dequeue() << endl;
-    cout << q.dequeue() << endl;
-    q.enqueue(8); 
-    q.enqueue(10); 
-    q.enqueue(12);
-    cout << q.dequeue() << endl; 
 
-    Queue q3(12);
-    q.enqueue(1); 
-    q.enqueue(1); 
-    q.enqueue(1);
-    q.enqueue(2); 
-    q.enqueue(2); 
-    q.enqueue(2);
-    cout << q.dequeue() << endl; 
-    cout << q.dequeue() << endl; 
-    cout << q.dequeue() << endl; 
-    q.enqueue(3);
-    cout << q.dequeue() << endl; 
-*/
+    // Queue q(10);
+    // q.enqueue(1); q.enqueue(10); q.enqueue(100);
+    // cout << q.dequeue() << endl;
+    // q.enqueue(2); q.enqueue(20); q.enqueue(200);
+    // cout << q.dequeue() << endl;
+    // cout << q.dequeue() << endl;
+    // cout << q.dequeue() << endl;
+    // cout << q.dequeue() << endl;
+    // cout << q.dequeue() << endl;
+
+    // Queue q2(12);
+    // q2.enqueue(2);
+    // q2.enqueue(4);
+    // q2.enqueue(6);
+    // cout << q2.dequeue() << endl;
+    // cout << q2.dequeue() << endl;
+    // q2.enqueue(8);
+    // q2.enqueue(10);
+    // q2.enqueue(12);
+    // cout << q2.dequeue() << endl;
+
+    // Queue q3(12);
+    // q3.enqueue(1);
+    // q3.enqueue(1);
+    // q3.enqueue(1);
+    // q3.enqueue(2);
+    // q3.enqueue(2);
+    // q3.enqueue(2);
+    // cout << q3.dequeue() << endl;
+    // cout << q3.dequeue() << endl;
+    // cout << q3.dequeue() << endl;
+    // q3.enqueue(3);
+    // cout << q3.dequeue() << endl;
 
 
-    
+
 
     return 0;
 }
